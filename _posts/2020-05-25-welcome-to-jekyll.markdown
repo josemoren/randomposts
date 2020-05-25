@@ -5,7 +5,7 @@ date:   2020-05-25 18:53:25 +0200
 categories: git
 ---
 
-The documentation referring to ours and theirs in git is not the easiest to understand. https://git-scm.com/docs/git-checkout#Documentation/git-checkout.txt---ours
+The documentation referring to [ours and theirs](https://git-scm.com/docs/git-checkout#Documentation/git-checkout.txt---ours) in git is not the easiest to understand.
 
 
 But in essence it seems to come down to a couple of things:
