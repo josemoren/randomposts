@@ -23,5 +23,9 @@ When doing a merge.
 
 When doing a rebase.
 
+{% highlight Shell Session %}
+feature1$ git rebase master
+{% endhighlight %}
+
 <img width="250" alt="rebase sample" src="https://user-images.githubusercontent.com/33334531/82841426-49688d00-9ed6-11ea-94a6-20de4fb168ad.png">
 
