@@ -15,13 +15,17 @@ But in essence it seems to come down to a couple of things:
 
 ### Merge
 
-When doing a merge.
+When doing a merge the target is the branch we are merging into. The changes being applied are the ones in the branch we are merging from. For example:
+
+{% highlight Shell Session %}
+master$ git merge feature1
+{% endhighlight %}
 
 <img width="255" alt="merge_sample1" src="https://user-images.githubusercontent.com/33334531/82841253-b0d20d00-9ed5-11ea-80e7-548d3fe5ab13.png">
 
 ### Rebase
 
-When doing a rebase.
+When doing a rebase the target is the branch we are rebasing onto.
 
 {% highlight Shell Session %}
 feature1$ git rebase master
