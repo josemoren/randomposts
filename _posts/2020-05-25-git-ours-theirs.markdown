@@ -24,8 +24,6 @@ master$ git merge feature1
 
 <img width="255" alt="merge_sample1" src="https://user-images.githubusercontent.com/33334531/82841253-b0d20d00-9ed5-11ea-80e7-548d3fe5ab13.png">
 
-&nbsp;
-&nbsp;
 Let's imagine a conflict arises in this merge. The following checkout would get the file `path/to/file` from `feature1`
 
 {% highlight Shell Session %}
