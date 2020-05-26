@@ -24,6 +24,11 @@ master$ git merge feature1
 
 <img width="255" alt="merge_sample1" src="https://user-images.githubusercontent.com/33334531/82841253-b0d20d00-9ed5-11ea-80e7-548d3fe5ab13.png">
 
+{% highlight Shell Session %}
+$ git checkout --theirs path/to/file
+{% endhighlight %}
+
+This checkout would get the file `path/to/file` from `feature1`
 
 ### Rebase
 
@@ -37,3 +42,9 @@ feature1$ git rebase master
 <img width="250" alt="rebase sample" src="https://user-images.githubusercontent.com/33334531/82841426-49688d00-9ed6-11ea-94a6-20de4fb168ad.png">
 
 So, if the current branch is `feature1` and we apply a rebase on master all the changes in `feature1` that are not in `master` will be applied on top of master. Therefore the "target" is really the master branch, even if the current branch is `feature1`.
+
+{% highlight Shell Session %}
+$ git checkout --theirs path/to/file
+{% endhighlight %}
+
+This checkout would get the file `path/to/file` from `feature1` again. Even if the current branch is different.
