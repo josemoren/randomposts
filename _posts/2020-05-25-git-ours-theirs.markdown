@@ -100,7 +100,7 @@ index 017dd08,ddcd36d..0000000
 ➜ git show head sample.txt # This is the diff between B and A
 
 commit aa39bd494895f8ffc26ae4d8bfa288b4cbe75b66 (HEAD, master)
-Author: Jose Moreno <jj@mo.com>
+Author: Jose M <jj@mo.com>
 Date:   Wed May 27 15:32:58 2020 +0200
 
     from master
@@ -112,6 +112,25 @@ index 466e7c1..017dd08 100644
 @@ -1 +1 @@
 -sample
 +sample from master
+
+{% endhighlight %}
+
+{% highlight Shell Session %}
+➜ git show rebase_head sample.txt # This is the diff between C and A
+
+commit f569b8c51faf116289d5de844e6dfa90bcfee956 (branch1)
+Author: Jose M <jj@mo.com>
+Date:   Wed May 27 15:32:26 2020 +0200
+
+    texto
+
+diff --git a/sample.txt b/sample.txt
+index 466e7c1..ddcd36d 100644
+--- a/sample.txt
++++ b/sample.txt
+@@ -1 +1 @@
+-sample
++sample from branch
 
 {% endhighlight %}
 
