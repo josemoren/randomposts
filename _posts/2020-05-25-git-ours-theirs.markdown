@@ -80,7 +80,7 @@ This output tells us that we have a `rebase in progress; onto aa39bd4`. `aa39bd4
 
 The section `Unmerged paths:` shows the files that have been modified in both sides of the rebase and that require a manual resolution. In this case the file `sample.txt`.
 
-{% highlight Shell Session %}
+```
 $ git diff # The current file has been modified to show conflicting changes
 
 diff --cc sample.txt
@@ -94,7 +94,7 @@ index 017dd08,ddcd36d..0000000
 + sample from branch
 ++>>>>>>> theirs
 
-{% endhighlight %}
+```
 
 {% highlight Shell Session %}
 ➜ git show head sample.txt # This is the diff between B and A
