@@ -81,7 +81,7 @@ This output tells us that we have a `rebase in progress; onto aa39bd4`. `aa39bd4
 The section `Unmerged paths:` shows the files that have been modified in both sides of the rebase and that require a manual resolution. In this case the file `sample.txt`.
 
 {% highlight Shell Session %}
-$ git diff # This is the diff between B (ours) and C (theirs)
+$ git diff # The current file has been modified to show conflicting changes
 
 diff --cc sample.txt
 index 017dd08,ddcd36d..0000000
@@ -176,7 +176,7 @@ sample from branch
 
 All the blobs in the index that have the 3 versions for a given path will appear as "unmerged paths". The name unmerged paths makes more sense now as the index is basically an index from file paths to blobs of content.
 
-How, what does "merge" those paths? Well, that is what the `git add` command will do. That command will create a new blob with whatever the content of the file is when we call it and it will update the index to point to that blob. After running the git add command we will only see one entry fo the specific path.
+Now, what does "merge" those paths? Well, that is what the `git add` command will do. That command will create a new blob with whatever the content of the file is when we call it and it will update the index to point to that blob. After running the git add command we will only see one entry for the specific path.
 
 The `git checkout` command can be used to overwrite the content of the file in our working directory.
 
