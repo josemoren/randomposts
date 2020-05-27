@@ -62,7 +62,9 @@ Now we do a rebase of `branch1` onto `master`. A conflict arises.
 
 {% highlight Shell Session %}
 $ git status
+{% endhighlight %}
 
+```
 rebase in progress; onto aa39bd4
 You are currently rebasing branch 'branch1' on 'aa39bd4'.
   (fix conflicts and then run "git rebase --continue")
@@ -73,8 +75,7 @@ Unmerged paths:
   (use "git restore --staged <file>..." to unstage)
   (use "git add <file>..." to mark resolution)
 	both modified:   sample.txt
-  
-{% endhighlight %}
+```
 
 This output tells us that we have a `rebase in progress; onto aa39bd4`. `aa39bd4` is the commit on the master branch which is the target of the changes.
 
