@@ -75,3 +75,34 @@ Unmerged paths:
 	both modified:   sample.txt
   
 {% endhighlight %}
+
+This output tells us that we have a `rebase in progress; onto aa39bd4`. `aa39bd4` is the commit on the master branch which is the target of the changes.
+
+The section `Unmerged paths:` shows the files that have been modified in both sides of the rebase and that require a manual resolution. In this case the file `sample.txt`.
+
+{% highlight Shell Session %}
+$ git diff
+
+diff --cc sample.txt
+index 017dd08,ddcd36d..0000000
+--- a/sample.txt
++++ b/sample.txt
+@@@ -1,1 -1,1 +1,5 @@@
+++<<<<<<< ours
+ +sample from master
+++=======
++ sample from branch
+++>>>>>>> theirs
+
+{% endhighlight %}
+
+But where does this list of unmerged paths come from? It is stored in the `index`.
+
+
+{% highlight Shell Session %}
+ ➜ git ls-files -s
+100644 9773bff9f5b3fd28bb79d4fd4eb0a40639e380a0 0	hola.txt
+100644 466e7c193eb3f9b7d20810115c08f6a0ee2209b5 1	sample.txt
+100644 017dd0869e506ff7dfef3b1c9d0a5ed5eaf39900 2	sample.txt
+100644 ddcd36d751de2b23dc9771b9728e0defa6dbe7a6 3	sample.txt
+{% endhighlight %}
