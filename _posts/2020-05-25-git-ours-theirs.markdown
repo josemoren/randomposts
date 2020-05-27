@@ -147,13 +147,16 @@ But where does this list of unmerged paths come from? It is stored in the `index
 
 {% endhighlight %}
 
-The ls-files command here shows the content of our index.
+The `ls-files` command here shows the content of our index.
+
 Files without conflicts have a 0 after the hash of the blob. In our example `hola.txt`. 
-Files with a conflict have 3 blobs present marked with 1, 2 and 3.
+Files with a conflict have 3 blobs marked with 1, 2 and 3.
 
 - 1: this is the base of the conflict (file as a blob in A).
 - 2: this is the ours version of the file (file as a blob in B).
 - 3: this is the theris version of the file (file as a blob in C).
+
+The command `git show` can be used to display the content of the blobs.
 
 {% highlight Shell Session %}
 
