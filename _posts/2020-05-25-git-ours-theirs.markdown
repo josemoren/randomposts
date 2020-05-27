@@ -17,36 +17,36 @@ But in essence it seems to come down to a couple of things:
 
 When doing a merge the target is the branch we are merging into. The changes being applied are the ones in the branch we are merging from. For example:
 
-{% highlight Shell Session %}
+```
 ➜ git checkout master
 master➜ git merge feature1
-{% endhighlight %}
+```
 
 <img width="255" alt="merge_sample1" src="https://user-images.githubusercontent.com/33334531/82841253-b0d20d00-9ed5-11ea-80e7-548d3fe5ab13.png">
 
 Let's imagine a conflict arises in this merge. The following checkout would get the file `path/to/file` from `feature1`
 
-{% highlight Shell Session %}
+```
 ➜ git checkout --theirs path/to/file
-{% endhighlight %}
+```
 
 
 ### Rebase
 
 When doing a rebase the target is the branch we are rebasing onto.
 
-{% highlight Shell Session %}
+```
 ➜ git checkout feature1
-feature1$ git rebase master
-{% endhighlight %}
+feature1➜ git rebase master
+```
 
 <img width="250" alt="rebase sample" src="https://user-images.githubusercontent.com/33334531/82841426-49688d00-9ed6-11ea-94a6-20de4fb168ad.png">
 
 So, if the current branch is `feature1` and we apply a rebase on master all the changes in `feature1` that are not in `master` will be applied on top of master. Therefore the "target" is really the master branch, even if the current branch is `feature1`.
 
-{% highlight Shell Session %}
+```
 ➜ git checkout --theirs path/to/file
-{% endhighlight %}
+```
 
 This checkout would get the file `path/to/file` from `feature1` again. Even if the current branch is different.
 
@@ -96,7 +96,7 @@ index 017dd08,ddcd36d..0000000
 
 ```
 
-{% highlight Shell Session %}
+```
 ➜ git show head sample.txt # This is the diff between B and A
 
 commit aa39bd494895f8ffc26ae4d8bfa288b4cbe75b66 (HEAD, master)
@@ -113,9 +113,9 @@ index 466e7c1..017dd08 100644
 -sample
 +sample from master
 
-{% endhighlight %}
+```
 
-{% highlight Shell Session %}
+```
 ➜ git show rebase_head sample.txt # This is the diff between C and A
 
 commit f569b8c51faf116289d5de844e6dfa90bcfee956 (branch1)
@@ -132,12 +132,12 @@ index 466e7c1..ddcd36d 100644
 -sample
 +sample from branch
 
-{% endhighlight %}
+```
 
 But where does this list of unmerged paths come from? It is stored in the `index`.
 
 
-{% highlight Shell Session %}
+```
 
  ➜ git ls-files -s
 100644 9773bff9f5b3fd28bb79d4fd4eb0a40639e380a0 0	hola.txt
@@ -145,7 +145,7 @@ But where does this list of unmerged paths come from? It is stored in the `index
 100644 017dd0869e506ff7dfef3b1c9d0a5ed5eaf39900 2	sample.txt
 100644 ddcd36d751de2b23dc9771b9728e0defa6dbe7a6 3	sample.txt
 
-{% endhighlight %}
+```
 
 The `ls-files` command here shows the content of our index.
 
@@ -158,7 +158,7 @@ Files with a conflict have 3 blobs marked with 1, 2 and 3.
 
 The command `git show` can be used to display the content of the blobs.
 
-{% highlight Shell Session %}
+```
 
  ➜ git show 466e7c193eb3f9b7d20810115c08f6a0ee2209b5
 
@@ -172,7 +172,7 @@ sample from master
 
 sample from branch
 
-{% endhighlight %}
+```
 
 All the blobs in the index that have the 3 versions for a given path will appear as "unmerged paths". The name unmerged paths makes more sense now as the index is basically an index from file paths to blobs of content.
 
@@ -180,18 +180,18 @@ Now, what does "merge" those paths? Well, that is what the `git add` command wil
 
 The `git checkout` command can be used to overwrite the content of the file in our working directory.
 
-{% highlight Shell Session %}
+```
 
  ➜ git checkout --ours sample.txt # The working directory will have the contents of blob 017dd0869e506ff7dfef3b1c9d0a5ed5eaf39900. 2 in the index
  
  ➜ git checkout --theirs sample.txt # The working directory will have the contents of blob ddcd36d751de2b23dc9771b9728e0defa6dbe7a6. 3 in the index
 
-{% endhighlight %}
+```
 
 We can also restore the original conflict merge file to start all over again.
 
-{% highlight Shell Session %}
+```
 
  ➜ git restore -m sample.txt # The working directory will have the contents of the original merge file with the <<<< and >>>>
 
-{% endhighlight %}
+```
