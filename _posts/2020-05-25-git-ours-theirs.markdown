@@ -18,8 +18,8 @@ But in essence it seems to come down to a couple of things:
 When doing a merge the target is the branch we are merging into. The changes being applied are the ones in the branch we are merging from. For example:
 
 {% highlight Shell Session %}
-$ git checkout master
-master$ git merge feature1
+➜ git checkout master
+master➜ git merge feature1
 {% endhighlight %}
 
 <img width="255" alt="merge_sample1" src="https://user-images.githubusercontent.com/33334531/82841253-b0d20d00-9ed5-11ea-80e7-548d3fe5ab13.png">
@@ -27,7 +27,7 @@ master$ git merge feature1
 Let's imagine a conflict arises in this merge. The following checkout would get the file `path/to/file` from `feature1`
 
 {% highlight Shell Session %}
-$ git checkout --theirs path/to/file
+➜ git checkout --theirs path/to/file
 {% endhighlight %}
 
 
@@ -36,7 +36,7 @@ $ git checkout --theirs path/to/file
 When doing a rebase the target is the branch we are rebasing onto.
 
 {% highlight Shell Session %}
-$ git checkout feature1
+➜ git checkout feature1
 feature1$ git rebase master
 {% endhighlight %}
 
@@ -45,7 +45,7 @@ feature1$ git rebase master
 So, if the current branch is `feature1` and we apply a rebase on master all the changes in `feature1` that are not in `master` will be applied on top of master. Therefore the "target" is really the master branch, even if the current branch is `feature1`.
 
 {% highlight Shell Session %}
-$ git checkout --theirs path/to/file
+➜ git checkout --theirs path/to/file
 {% endhighlight %}
 
 This checkout would get the file `path/to/file` from `feature1` again. Even if the current branch is different.
@@ -81,7 +81,7 @@ This output tells us that we have a `rebase in progress; onto aa39bd4`. `aa39bd4
 The section `Unmerged paths:` shows the files that have been modified in both sides of the rebase and that require a manual resolution. In this case the file `sample.txt`.
 
 ```
-$ git diff # The current file has been modified to show conflicting changes
+➜ git diff # The current file has been modified to show conflicting changes
 
 diff --cc sample.txt
 index 017dd08,ddcd36d..0000000
