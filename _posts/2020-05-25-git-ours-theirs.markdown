@@ -170,3 +170,25 @@ sample from master
 sample from branch
 
 {% endhighlight %}
+
+All the blobs in the index that have the 3 versions for a given path will appear as "unmerged paths". The name unmerged paths makes more sense now as the index is basically an index from file paths to blobs of content.
+
+How, what does "merge" those paths? Well, that is what the `git add` command will do. That command will create a new blob with whatever the content of the file is when we call it and it will update the index to point to that blob. After running the git add command we will only see one entry fo the specific path.
+
+The `git checkout` command can be used to overwrite the content of the file in our working directory.
+
+{% highlight Shell Session %}
+
+ ➜ git checkout --ours sample.txt # The working directory will have the contents of blob 017dd0869e506ff7dfef3b1c9d0a5ed5eaf39900. 2 in the index
+ 
+ ➜ git checkout --theirs sample.txt # The working directory will have the contents of blob ddcd36d751de2b23dc9771b9728e0defa6dbe7a6. 3 in the index
+
+{% endhighlight %}
+
+We can also restore the original conflict merge file to start all over again.
+
+{% highlight Shell Session %}
+
+ ➜ git restore -m sample.txt # The working directory will have the contents of the original merge file with the <<<< and >>>>
+
+{% endhighlight %}
