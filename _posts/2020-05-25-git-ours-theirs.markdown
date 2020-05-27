@@ -54,8 +54,24 @@ This checkout would get the file `path/to/file` from `feature1` again. Even if t
 
 Let's imagine we have the following commits:
 
-<img width="638" alt="graph1" src="https://user-images.githubusercontent.com/33334531/83038178-f3622980-a03c-11ea-8f56-e6c12bd74471.png">
+<img width="319" alt="graph1" src="https://user-images.githubusercontent.com/33334531/83038178-f3622980-a03c-11ea-8f56-e6c12bd74471.png">
 
-`B` and `C` have `A` as their parent. In all three we have the file `sample.txt`.
+`B` and `C` have `A` as their parent. In all three we have the file `sample.txt`. Both B and C have modified the same line in the text file.
 
-Now we do a rebase of `branch1` onto `master`. A conflict arises. 
+Now we do a rebase of `branch1` onto `master`. A conflict arises.
+
+{% highlight Shell Session %}
+$ git status
+
+rebase in progress; onto aa39bd4
+You are currently rebasing branch 'branch1' on 'aa39bd4'.
+  (fix conflicts and then run "git rebase --continue")
+  (use "git rebase --skip" to skip this patch)
+  (use "git rebase --abort" to check out the original branch)
+
+Unmerged paths:
+  (use "git restore --staged <file>..." to unstage)
+  (use "git add <file>..." to mark resolution)
+	both modified:   sample.txt
+  
+{% endhighlight %}
