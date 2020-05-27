@@ -153,8 +153,8 @@ Files without conflicts have a 0 after the hash of the blob. In our example `hol
 Files with a conflict have 3 blobs marked with 1, 2 and 3.
 
 - 1: this is the base of the conflict (file as a blob in A).
-- 2: this is the ours version of the file (file as a blob in B).
-- 3: this is the theris version of the file (file as a blob in C).
+- 2: this is the ours version of the file (file as a blob in B) [git](https://github.com/git/git/blob/2d5e9f31ac46017895ce6a183467037d29ceb9d3/builtin/checkout.c#L1529).
+- 3: this is the theris version of the file (file as a blob in C) [git](https://github.com/git/git/blob/2d5e9f31ac46017895ce6a183467037d29ceb9d3/builtin/checkout.c#L1532).
 
 The command `git show` can be used to display the content of the blobs.
 
