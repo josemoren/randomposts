@@ -81,7 +81,7 @@ This output tells us that we have a `rebase in progress; onto aa39bd4`. `aa39bd4
 The section `Unmerged paths:` shows the files that have been modified in both sides of the rebase and that require a manual resolution. In this case the file `sample.txt`.
 
 {% highlight Shell Session %}
-$ git diff
+$ git diff # This is the diff between B (ours) and C (theirs)
 
 diff --cc sample.txt
 index 017dd08,ddcd36d..0000000
@@ -93,6 +93,25 @@ index 017dd08,ddcd36d..0000000
 ++=======
 + sample from branch
 ++>>>>>>> theirs
+
+{% endhighlight %}
+
+{% highlight Shell Session %}
+➜ git show head sample.txt # This is the diff between B and A
+
+commit aa39bd494895f8ffc26ae4d8bfa288b4cbe75b66 (HEAD, master)
+Author: Jose Moreno <jj@mo.com>
+Date:   Wed May 27 15:32:58 2020 +0200
+
+    from master
+
+diff --git a/sample.txt b/sample.txt
+index 466e7c1..017dd08 100644
+--- a/sample.txt
++++ b/sample.txt
+@@ -1 +1 @@
+-sample
++sample from master
 
 {% endhighlight %}
 
