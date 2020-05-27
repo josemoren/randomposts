@@ -138,9 +138,35 @@ But where does this list of unmerged paths come from? It is stored in the `index
 
 
 {% highlight Shell Session %}
+
  ➜ git ls-files -s
 100644 9773bff9f5b3fd28bb79d4fd4eb0a40639e380a0 0	hola.txt
 100644 466e7c193eb3f9b7d20810115c08f6a0ee2209b5 1	sample.txt
 100644 017dd0869e506ff7dfef3b1c9d0a5ed5eaf39900 2	sample.txt
 100644 ddcd36d751de2b23dc9771b9728e0defa6dbe7a6 3	sample.txt
+
+{% endhighlight %}
+
+The ls-files command here shows the content of our index.
+Files without conflicts have a 0 after the hash of the blob. In our example `hola.txt`. 
+Files with a conflict have 3 blobs present marked with 1, 2 and 3.
+
+- 1: this is the base of the conflict (file as a blob in A).
+- 2: this is the ours version of the file (file as a blob in B).
+- 3: this is the theris version of the file (file as a blob in C).
+
+{% highlight Shell Session %}
+
+ ➜ git show 466e7c193eb3f9b7d20810115c08f6a0ee2209b5
+
+sample
+
+ ➜ git show 017dd0869e506ff7dfef3b1c9d0a5ed5eaf39900
+
+sample from master
+
+ ➜ git show ddcd36d751de2b23dc9771b9728e0defa6dbe7a6
+
+sample from branch
+
 {% endhighlight %}
