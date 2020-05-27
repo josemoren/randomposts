@@ -60,11 +60,10 @@ Let's imagine we have the following commits:
 
 Now we do a rebase of `branch1` onto `master`. A conflict arises.
 
-{% highlight Shell Session %}
-$ git status
-{% endhighlight %}
 
 ```
+ ➜ git status
+ 
 rebase in progress; onto aa39bd4
 You are currently rebasing branch 'branch1' on 'aa39bd4'.
   (fix conflicts and then run "git rebase --continue")
