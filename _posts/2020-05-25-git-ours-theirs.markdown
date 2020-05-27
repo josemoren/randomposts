@@ -49,3 +49,13 @@ $ git checkout --theirs path/to/file
 {% endhighlight %}
 
 This checkout would get the file `path/to/file` from `feature1` again. Even if the current branch is different.
+
+### Internals of conflicts
+
+Let's imagine we have the following commits:
+
+<img width="638" alt="graph1" src="https://user-images.githubusercontent.com/33334531/83038178-f3622980-a03c-11ea-8f56-e6c12bd74471.png">
+
+`B` and `C` have `A` as their parent. In all three we have the file `sample.txt`.
+
+Now we do a rebase of `branch1` onto `master`. A conflict arises. 
